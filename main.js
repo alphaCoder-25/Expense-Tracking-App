@@ -1,11 +1,18 @@
-const element = document.querySelector("#btnCounter");
-const input = document.querySelector("#inputElement");
+const element = document.querySelector("#btnAddExpense");
+const inputElement = document.querySelector("#inputAmount");
 
-let counter = 0;
+let totalExpense = 0;
 
-function counterIncrememnt(){
-   counter = counter + 1;
-   console.log(counter) 
+function addExpenseToTotal() {
+    const textAmount = inputElement.value;
+    console.log({ textAmount });
+
+const expense = parseInt(textAmount, 10)
+console.log({ expense });
+
+ totalExpense = totalExpense + expense;
+ console.log(totalExpense);
+
 }
 
-element.addEventListener("click", counterIncrememnt, false)
+element.addEventListener("click",addExpenseToTotal, false)

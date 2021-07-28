@@ -34,18 +34,13 @@ const data1 = allExpenses[0];
 const data2 = allExpenses[1];
 
 const data1Text = `${data1.amount} :: ${data1.desc}`;
-const tableText = `<div>${data1Text}</div>`
-
-expenseTableEl.innerHTML = tableText;
-
 const data2Text = `${data2.amount} :: ${data2.desc}`;
 
-const tableText1 = `
+const tableText = `
     <div>${data1Text}</div>
     <div>${data2Text}</div>
-`  
-console.clear();  
-expenseTableEl.innerHTML = tableText1;
+`    
+expenseTableEl.innerHTML = tableText;
 }
 
 element.addEventListener("click", addExpenseToTotal, false)

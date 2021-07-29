@@ -36,7 +36,7 @@ headingEl.textContent = someText;
 
 const joinedAllExpenseHTML = allExpensesHTML.join(" ");
 
-// console.log(joinedAllExpenseHTML);
+console.log(joinedAllExpenseHTML);
 
 expenseTableEl.innerHTML = joinedAllExpenseHTML;
 }

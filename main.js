@@ -30,17 +30,15 @@ totalExpense = totalExpense + expense;
 const someText = `The Expense of this month is: ${totalExpense}`
 headingEl.textContent = someText;
 
-const data1 = allExpenses[0];
-const data2 = allExpenses[1];
+ const allExpensesHTML = allExpenses.map(expense => {
+    return `<div> ${expense.amount} :: ${expense.desc} </div>`
+});
 
-const data1Text = `${data1.amount} :: ${data1.desc}`;
-const data2Text = `${data2.amount} :: ${data2.desc}`;
+const joinedAllExpenseHTML = allExpensesHTML.join(" ");
 
-const tableText = `
-    <div>${data1Text}</div>
-    <div>${data2Text}</div>
-`    
-expenseTableEl.innerHTML = tableText;
+// console.log(joinedAllExpenseHTML);
+
+expenseTableEl.innerHTML = joinedAllExpenseHTML;
 }
 
 element.addEventListener("click", addExpenseToTotal, false)

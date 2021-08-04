@@ -31,7 +31,21 @@ const someText = `Total: ${totalExpense}`
 headingEl.textContent = someText;
 
  const allExpensesHTML = allExpenses.map(expense => {
-    return `<div> ${expense.amount} :: ${expense.desc} </div>`
+     return `<li class="list-group-item d-flex justify-content-between">
+                <div class="d-flex flex-column">
+                    ${expense.desc}
+                    <small class="text-muted">March 11,2019</small>
+                </div>
+                <div>
+                    <span class="px-5">
+                    ${expense.amount}
+                    </span>
+                    <button type="button" class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </li>
+            `;
 });
 
 const joinedAllExpenseHTML = allExpensesHTML.join(" ");

@@ -30,23 +30,7 @@ totalExpense = totalExpense + expense;
 const someText = `Total: ${totalExpense}`
 headingEl.textContent = someText;
 
- const allExpensesHTML = allExpenses.map(expense => {
-     return `<li class="list-group-item d-flex justify-content-between">
-                <div class="d-flex flex-column">
-                    ${expense.desc}
-                    <small class="text-muted">March 11,2019</small>
-                </div>
-                <div>
-                    <span class="px-5">
-                    ${expense.amount}
-                    </span>
-                    <button type="button" class="btn btn-outline-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </li>
-            `;
-});
+ const allExpensesHTML = allExpenses.map(expense => createListItem(expense));
 
 const joinedAllExpenseHTML = allExpensesHTML.join(" ");
 
@@ -56,3 +40,22 @@ expenseTableEl.innerHTML = joinedAllExpenseHTML;
 }
 
 element.addEventListener("click", addExpenseToTotal, false)
+
+function createListItem({ desc, amount }){
+    return `
+            <li class="list-group-item d-flex justify-content-between">
+                <div class="d-flex flex-column">
+                    ${desc}
+                    <small class="text-muted">March 11,2019</small>
+                </div>
+                <div>
+                    <span class="px-5">
+                    ${amount}
+                    </span>
+                <button type="button" class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+                </div>
+            </li>
+           `;
+    };

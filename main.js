@@ -27,7 +27,7 @@ allExpenses.push(expenseItem);
 totalExpense = totalExpense + expense;
 
 // const someText = "The Expense of this month is " + totalExpense;
-const someText = `The Expense of this month is: ${totalExpense}`
+const someText = `Total: ${totalExpense}`
 headingEl.textContent = someText;
 
  const allExpensesHTML = allExpenses.map(expense => {

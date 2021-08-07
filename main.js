@@ -42,8 +42,8 @@ expenseTableEl.innerHTML = joinedAllExpenseHTML;
 
 element.addEventListener("click", addExpenseToTotal, false);
 
-function getDateString(moment){
-    return moment.toLocaleDateString('en-US', { 
+function getDateString(momento){
+    return momento.toLocaleDateString('en-US', { 
         year: 'numeric',
         month: 'long',
         day: 'numeric'

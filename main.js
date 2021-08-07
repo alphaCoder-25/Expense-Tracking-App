@@ -31,10 +31,7 @@ totalExpense = totalExpense + expense;
 const someText = `Total: ${totalExpense}`
 headingEl.textContent = someText;
 
-const allExpensesHTML = allExpenses.map(expense => createListItem( expense ));
-
-const joinedAllExpenseHTML = allExpensesHTML.join(" ");
-expenseTableEl.innerHTML = joinedAllExpenseHTML;
+    renderList(allExpenses);
 }
 
 element.addEventListener("click", addExpenseToTotal, false);
@@ -55,7 +52,11 @@ function deleteItem(dateValue){
         newArr.push(allExpenses[i]);
         }
     }
-    const allExpensesHTML = newArr.map(expense => createListItem( expense ));
+    renderList(newArr);
+}
+
+function renderList(arrOfList) {
+    const allExpensesHTML = arrOfList.map(expense => createListItem( expense ));
     const joinedAllExpenseHTML = allExpensesHTML.join(" ");
     expenseTableEl.innerHTML = joinedAllExpenseHTML;
 }

@@ -31,12 +31,9 @@ totalExpense = totalExpense + expense;
 const someText = `Total: ${totalExpense}`
 headingEl.textContent = someText;
 
- const allExpensesHTML = allExpenses.map(expense => createListItem( expense ));
+const allExpensesHTML = allExpenses.map(expense => createListItem( expense ));
 
 const joinedAllExpenseHTML = allExpensesHTML.join(" ");
-
-console.log(joinedAllExpenseHTML);
-
 expenseTableEl.innerHTML = joinedAllExpenseHTML;
 }
 
@@ -48,6 +45,19 @@ function getDateString(momento){
         month: 'long',
         day: 'numeric'
     });
+}
+
+function deleteItem(dateValue){
+    const newArr = [];
+
+    for(let i=0; i < allExpenses.length; i++) {
+        if(allExpenses[i].moment.valueOf() !== dateValue){
+        newArr.push(allExpenses[i]);
+        }
+    }
+    const allExpensesHTML = newArr.map(expense => createListItem( expense ));
+    const joinedAllExpenseHTML = allExpensesHTML.join(" ");
+    expenseTableEl.innerHTML = joinedAllExpenseHTML;
 }
 
 function createListItem({ desc, amount, moment }){
@@ -62,7 +72,8 @@ function createListItem({ desc, amount, moment }){
                     ${amount}
                     </span>
                 <button type="button" class="btn btn-outline-danger btn-sm">
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="fas fa-trash-alt"
+                    onClick = "deleteItem(${moment.valueOf()})"></i>
                 </button>
                 </div>
             </li>

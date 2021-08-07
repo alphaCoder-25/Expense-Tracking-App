@@ -21,6 +21,7 @@ const expense = parseInt(textAmount, 10);
 
 expenseItem.amount = expense;
 expenseItem.desc = textDesc;
+expenseItem.moment = new Date();
 
 allExpenses.push(expenseItem);
 
@@ -30,7 +31,7 @@ totalExpense = totalExpense + expense;
 const someText = `Total: ${totalExpense}`
 headingEl.textContent = someText;
 
- const allExpensesHTML = allExpenses.map(expense => createListItem(expense));
+ const allExpensesHTML = allExpenses.map(expense => createListItem( expense ));
 
 const joinedAllExpenseHTML = allExpensesHTML.join(" ");
 
@@ -39,14 +40,18 @@ console.log(joinedAllExpenseHTML);
 expenseTableEl.innerHTML = joinedAllExpenseHTML;
 }
 
-element.addEventListener("click", addExpenseToTotal, false)
+element.addEventListener("click", addExpenseToTotal, false);
 
-function createListItem({ desc, amount }){
+function createListItem({ desc, amount, moment }){
     return `
             <li class="list-group-item d-flex justify-content-between">
                 <div class="d-flex flex-column">
                     ${desc}
-                    <small class="text-muted">March 11,2019</small>
+                    <small class="text-muted">${moment.toLocaleDateString('en-US', { 
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })}</small>
                 </div>
                 <div>
                     <span class="px-5">

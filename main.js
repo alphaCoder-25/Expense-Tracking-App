@@ -47,7 +47,7 @@ function getDateString(momento){
         year: 'numeric',
         month: 'long',
         day: 'numeric'
-    })
+    });
 }
 
 function createListItem({ desc, amount, moment }){

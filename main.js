@@ -42,16 +42,20 @@ expenseTableEl.innerHTML = joinedAllExpenseHTML;
 
 element.addEventListener("click", addExpenseToTotal, false);
 
+function getDateString(moment){
+    return moment.toLocaleDateString('en-US', { 
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    })
+}
+
 function createListItem({ desc, amount, moment }){
     return `
             <li class="list-group-item d-flex justify-content-between">
                 <div class="d-flex flex-column">
                     ${desc}
-                    <small class="text-muted">${moment.toLocaleDateString('en-US', { 
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    })}</small>
+                    <small class="text-muted">${getDateString(moment)}</small>
                 </div>
                 <div>
                     <span class="px-5">

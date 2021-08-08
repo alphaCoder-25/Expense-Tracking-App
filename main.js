@@ -44,16 +44,22 @@ function getDateString(momento){
     });
 }
 
+//Delete Items
 function deleteItem(dateValue){
-    const newArr = [];
+//   const newArr = [];
 
-    for(let i=0; i < allExpenses.length; i++) {
-        if(allExpenses[i].moment.valueOf() !== dateValue){
-        newArr.push(allExpenses[i]);
+//   for(let i=0; i < allExpenses.length; i++) {
+//       if(allExpenses[i].moment.valueOf() !== dateValue){
+//        newArr.push(allExpenses[i]);
+//        }
+//     }
+     const newArr = allExpenses.filter((expense) => {
+         if (expense.moment.valueOf() !== dateValue){
+            return expense;
         }
-    }
-    renderList(newArr);
-}
+    });       
+         renderList(newArr);
+ }
 
 function renderList(arrOfList) {
     const allExpensesHTML = arrOfList.map(expense => createListItem( expense ));

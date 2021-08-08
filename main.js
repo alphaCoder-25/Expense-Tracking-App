@@ -46,21 +46,24 @@ function getDateString(momento){
 
 //Delete Items
 function deleteItem(dateValue){
-//   const newArr = [];
+    //   const newArr = [];
+    //   for(let i=0; i < allExpenses.length; i++) {
+    //   if(allExpenses[i].moment.valueOf() !== dateValue){
+    //      newArr.push(allExpenses[i]);
+    //    }
+    //   }
 
-//   for(let i=0; i < allExpenses.length; i++) {
-//       if(allExpenses[i].moment.valueOf() !== dateValue){
-//        newArr.push(allExpenses[i]);
-//        }
-//     }
-     const newArr = allExpenses.filter((expense) => {
-         if (expense.moment.valueOf() !== dateValue){
-            return expense;
-        }
-    });       
-         renderList(newArr);
+    //   const newArr = allExpenses.filter((expense) => {
+    //   if (expense.moment.valueOf() !== dateValue){
+    //       return expense;
+    //   }
+    //  });     
+    
+    const newArr = allExpenses.filter(expense => expense.moment.valueOf() !== dateValue)
+    renderList(newArr);
  }
 
+//  View Layer
 function renderList(arrOfList) {
     const allExpensesHTML = arrOfList.map(expense => createListItem( expense ));
     const joinedAllExpenseHTML = allExpensesHTML.join(" ");
@@ -78,9 +81,9 @@ function createListItem({ desc, amount, moment }){
                     <span class="px-5">
                     ${amount}
                     </span>
-                <button type="button" class="btn btn-outline-danger btn-sm">
-                    <i class="fas fa-trash-alt"
-                    onClick = "deleteItem(${moment.valueOf()})"></i>
+                <button type="button" class="btn btn-outline-danger btn-sm"
+                    onClick = "deleteItem(${moment.valueOf()})">
+                    <i class="fas fa-trash-alt"></i>
                 </button>
                 </div>
             </li>
